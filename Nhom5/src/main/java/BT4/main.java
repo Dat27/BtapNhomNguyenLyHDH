@@ -101,7 +101,9 @@ public class main extends Process{
     public static void main(String[] args) {
         main m = new main();
         int num =0;
-        int[][] a = new int[20][6]  ;
+//        int[][] a = new int[20][6]  ;
+        double total =0;
+        double avgWaitingTime;
         List<Process> list = m.readFromFile();
         for (Process process : list) {
             num++;
@@ -124,7 +126,10 @@ public class main extends Process{
             System.out.printf("%d\t\t%d\t\t%d\t\t%d\t\t%d\n", mat[i][0],
                 mat[i][1], mat[i][2], mat[i][4], mat[i][5]);
         }
-
-
+        for (int i = 0; i < num; i++) {
+            total += mat[i][4];
+        }
+        avgWaitingTime = total/num;
+        System.out.format("Thoi gian cho trung binh: %.3f%n", avgWaitingTime);
     }
 }
